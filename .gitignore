@@ -1,5 +1,5 @@
 documents
 **/*.env
 __pycache__
-__pymodules__
+__pypackages__
 *.pyc
