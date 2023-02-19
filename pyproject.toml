@@ -3,22 +3,17 @@ name = "itsg"
 version = "0.0.1"
 description = ""
 authors = [
-    {name = "Caroline Mimeault", email = "carolinemimeault@gmail.com"},
-    {name = "Mike Williamson", email = "mike@korora.ca"},
+    { name = "Caroline Mimeault", email = "carolinemimeault@gmail.com" },
+    { name = "Mike Williamson", email = "mike@korora.ca" },
 ]
-dependencies = [
-    "fastapi>=0.92.0",
-    "uvicorn[standard]>=0.20.0",
-]
+dependencies = ["fastapi>=0.92.0", "uvicorn[standard]>=0.20.0"]
 requires-python = ">=3.9"
-license = {text = "MIT"}
+license = { text = "MIT" }
 [project.optional-dependencies]
 
 [tool.pdm]
 [tool.pdm.dev-dependencies]
-dev = [
-    "httpx>=0.23.3",
-]
+dev = ["httpx>=0.23.3", "pytest-cov>=4.0.0", "ruff>=0.0.247"]
 
 [build-system]
 requires = ["pdm-pep517>=1.0.0"]
@@ -30,4 +25,4 @@ testpaths = "app"
 
 [tool.pdm.scripts]
 start = "uvicorn main:app --reload"
-test = "pytest"
+test = "pytest --cov=app"
