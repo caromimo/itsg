@@ -6,7 +6,11 @@ authors = [
     { name = "Caroline Mimeault", email = "carolinemimeault@gmail.com" },
     { name = "Mike Williamson", email = "mike@korora.ca" },
 ]
-dependencies = ["fastapi>=0.92.0", "uvicorn[standard]>=0.20.0"]
+dependencies = [
+    "fastapi>=0.92.0",
+    "uvicorn[standard]>=0.20.0",
+    "strawberry-graphql[fastapi]>=0.158.0",
+]
 requires-python = ">=3.9"
 license = { text = "MIT" }
 [project.optional-dependencies]
@@ -24,5 +28,5 @@ build-backend = "pdm.pep517.api"
 testpaths = "app"
 
 [tool.pdm.scripts]
-start = "uvicorn main:app --reload"
+start = "uvicorn app.main:app --reload"
 test = "pytest --cov=app"
