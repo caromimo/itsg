@@ -10,6 +10,8 @@ dependencies = [
     "fastapi>=0.92.0",
     "uvicorn[standard]>=0.20.0",
     "strawberry-graphql[fastapi]>=0.158.0",
+    "aiosql>=7.2",
+    "asyncpg>=0.27.0",
 ]
 requires-python = ">=3.9"
 license = { text = "MIT" }
@@ -29,7 +31,8 @@ testpaths = "app"
 
 [tool.pdm.scripts]
 
-start = "uvicorn app.main:app --reload"
+start.cmd = "uvicorn app.main:app --reload"
+start.env_file = "api.env"
 test = "pytest --cov=app"
 
 daemon-db-container = "docker run --name=postgres -d -p 5432:5432 --env-file=database.env postgres"
