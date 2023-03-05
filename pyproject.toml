@@ -28,5 +28,10 @@ build-backend = "pdm.pep517.api"
 testpaths = "app"
 
 [tool.pdm.scripts]
+
 start = "uvicorn app.main:app --reload"
 test = "pytest --cov=app"
+
+daemon-db-container = "docker run --name=postgres -d -p 5432:5432 --env-file=database.env postgres"
+start-db-client = "psql --host=localhost --username=itsg --dbname=itsg --password"
+stop-db-container = { shell = "docker stop postgres && docker rm postgres" }
